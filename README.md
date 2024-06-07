@@ -3,6 +3,10 @@
 
 ---
 
+[Score Table](/resources/score.md)
+
+---
+
 ### 결투 신청서
 
 숨막히는 둘 간의 접전이 벌어진다. <br>
