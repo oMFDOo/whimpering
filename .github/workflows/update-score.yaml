@@ -7,6 +7,10 @@ on:
 
 jobs:
   run-python-script:
+    permissions:                # Job-level permissions configuration starts here
+      contents: write           # 'write' access to repository contents 
+                                # https://github.com/ad-m/github-push-action/tree/master/
+
     runs-on: ubuntu-latest
 
     steps:
