@@ -34,4 +34,3 @@ if __name__ == "__main__":
     main(args.github_token, args.github_owner, args.github_repo,
          args.win_list, args.output_score)
 
-#%%

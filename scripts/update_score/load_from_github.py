@@ -1,4 +1,3 @@
-#%%
 from github import Github
 from datetime import datetime, timezone, timedelta
 
@@ -29,7 +28,6 @@ def get_latest_closed_issue(token, owner = 'oMFDOo', repo = 'whimpering'):
     latest_closed_issue = closed_issues[0] if closed_issues.totalCount > 0 else None
     return latest_closed_issue
 
-
 def update_current_score(input: str, output: str):
     name = { 'oMFDOo': 0, 'Piorosen': 0 }
     with open(input, 'r') as f:
@@ -40,6 +38,7 @@ def update_current_score(input: str, output: str):
     with open(output, 'wt+') as f:
         f.write(result)
     
+
 
 #%%
 
