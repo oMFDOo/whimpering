@@ -1,4 +1,4 @@
-name: Update Table Score on Issue Closed
+name: Manupulate Score
 
 on:
   workflow_dispatch:

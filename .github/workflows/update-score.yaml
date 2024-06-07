@@ -1,4 +1,4 @@
-name: Update Table Score on Issue Closed
+name: Update Table Score on Creating Issue Comment
 
 on:
   workflow_dispatch:
