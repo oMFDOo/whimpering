@@ -1,0 +1,52 @@
+name: Update Table Score on Issue Closed
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [closed]
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12' 
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r ./scripts/calc_table/requirements.txt
+        pip install -r ./scripts/update_score/requirements.txt
+
+    - name: Update Score and Win List
+      run: | 
+        cd scripts/update_score
+        python ./main.py
+
+    - name: Update Table to Resources Directory
+      run: | 
+        cd scripts/calc_table
+        python ./calc_table.py
+
+    - name: Add & Commit
+      uses: EndBug/add-and-commit@v4.4.0
+      with:
+        add: '.'
+        ref: "main"
+        author_name: 'Piorosen'
+        author_email: 'chacha@udon.party'
+        message: "[BOT] Update Table"
+      env:
+        GITHUB_TOKEN: ${{ secrets.README_UPDATE }}
+    
+    - name: Push commit
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.README_UPDATE }}
+        branch: main
