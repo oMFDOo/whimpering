@@ -1,0 +1,48 @@
+name: Update Table Score on Issue Closed
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-python-script:
+    permissions:                # Job-level permissions configuration starts here
+      contents: write           # 'write' access to repository contents 
+                                # https://github.com/ad-m/github-push-action/tree/master/
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12' 
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r ./scripts/requirements.txt
+
+    - name: Run
+      run: | 
+        cd scripts
+        python ./test_score.py
+
+    - name: Add & Commit
+      uses: EndBug/add-and-commit@v4.4.0
+      with:
+        add: '.'
+        ref: "main"
+        author_name: 'oMFDOo'
+        author_email: 'jinjoo021@naver.com'
+        message: "[BOT] Update Table"
+      env:
+        GITHUB_TOKEN: ${{ secrets.README_UPDATE }}
+    
+    - name: Push commit
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.README_UPDATE }}
+        branch: main
