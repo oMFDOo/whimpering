@@ -23,7 +23,7 @@ def add_win_list(file: str, issue_id: str, winner: str):
 def get_latest_closed_issue(token, owner = 'oMFDOo', repo = 'whimpering'):
     g = Github(token)
     repository = g.get_repo(f"{owner}/{repo}")
-    closed_issues = repository.get_issues(state='closed', sort='updated', direction='desc')
+    closed_issues = repository.get_issues(state='open', sort='updated', direction='desc')
     
     latest_closed_issue = closed_issues[0] if closed_issues.totalCount > 0 else None
     return latest_closed_issue

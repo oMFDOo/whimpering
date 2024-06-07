@@ -1,0 +1,17 @@
+Jinja2==3.1.4
+MarkupSafe==2.1.5
+pyfiglet==1.0.2
+certifi==2024.6.2
+cffi==1.16.0
+charset-normalizer==3.3.2
+cryptography==42.0.8
+Deprecated==1.2.14
+idna==3.7
+pycparser==2.22
+PyGithub==2.3.0
+PyJWT==2.8.0
+PyNaCl==1.5.0
+requests==2.32.3
+typing_extensions==4.12.1
+urllib3==2.2.1
+wrapt==1.16.0

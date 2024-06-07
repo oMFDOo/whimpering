@@ -1,7 +1,7 @@
 from load_from_github import get_latest_closed_issue, get_win_latest, add_win_list, update_current_score
 import argparse
 
-def main(token: str, owner: str, repo: str, win_list: str, output_score: str):
+def update_score(token: str, owner: str, repo: str, win_list: str, output_score: str):
     issue = get_latest_closed_issue(token, owner, repo)
     if issue == None:
         print("issue is nothing")
@@ -15,6 +15,7 @@ def main(token: str, owner: str, repo: str, win_list: str, output_score: str):
         return
     
     commend = issue.get_comments()
+    commend = list(filter(lambda x: x.user.login in ["Piorosen", "oMFDOo"], commend))
     win_user = commend[0].user.login
 
     add_win_list(win_list, issue.number, win_user)
@@ -31,6 +32,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    main(args.github_token, args.github_owner, args.github_repo,
-         args.win_list, args.output_score)
+    update_score(args.github_token, args.github_owner, args.github_repo,
+                 args.win_list, args.output_score)
 
