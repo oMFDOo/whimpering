@@ -39,8 +39,8 @@ jobs:
       with:
         add: '.'
         ref: "main"
-        author_name: 'Piorosen'
-        author_email: 'chacha@udon.party'
+        author_name: 'oMFDOo'
+        author_email: 'jinjoo021@naver.com'
         message: "[BOT] Update Table"
       env:
         GITHUB_TOKEN: ${{ secrets.README_UPDATE }}
