@@ -31,7 +31,7 @@ jobs:
     - name: Update Score and Win List
       run: | 
         cd scripts/update_score
-        python ./main.py
+        python ./main.py --github_token ${{ secrets.README_UPDATE }}
 
     - name: Update Table to Resources Directory
       run: | 
