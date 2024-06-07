@@ -1,5 +1,5 @@
 #%%
-from load_from_github import *
+from .load_from_github import *
 import os
 import argparse
 

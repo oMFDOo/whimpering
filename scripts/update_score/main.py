@@ -1,4 +1,4 @@
-from load_from_github import get_latest_closed_issue, get_win_latest, add_win_list, update_current_score
+from .load_from_github import get_latest_closed_issue, get_win_latest, add_win_list, update_current_score
 import argparse
 
 def update_score(token: str, owner: str, repo: str, win_list: str, output_score: str):

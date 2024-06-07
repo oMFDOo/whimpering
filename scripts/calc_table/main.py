@@ -1,5 +1,5 @@
 import argparse
-from calc_table import get_current_information, generate_score_table
+from .calc_table import get_current_information, generate_score_table
 
 def update_table(score_file: str, template: str, output: str):
     score = get_current_information(score_file)
