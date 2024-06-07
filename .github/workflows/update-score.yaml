@@ -35,9 +35,10 @@ jobs:
         python ./calc_table.py
 
     - name: Add & Commit
-      uses: EndBug/add-and-commit@v9
+      uses: EndBug/add-and-commit@v4.4.0
       with:
         add: '.'
+        ref: "main"
         author_name: 'Piorosen'
         author_email: 'chacha@udon.party'
         message: "[BOT] Update Table"
